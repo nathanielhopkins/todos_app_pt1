@@ -1,4 +1,4 @@
-import { RECEIVE_TODOS, RECEIVE_TODO } from '../actions/todo_actions';
+import { RECEIVE_TODOS, RECEIVE_TODO, REMOVE_TODO } from '../actions/todo_actions';
 
 const initialState = {
   1: {
@@ -25,6 +25,10 @@ const todosReducer = (state = initialState, action) => {
       let todos = Object.assign({}, state);
       todos[action.todo.id] = action.todo;
       return todos;
+    case REMOVE_TODO:
+      let prunedTodos = Object.assign({}, state);
+      delete prunedTodos[action.todoID];
+      return prunedTodos;
     default:
       return state;
   }
