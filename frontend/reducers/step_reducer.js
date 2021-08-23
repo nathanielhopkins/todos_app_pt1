@@ -1,10 +1,10 @@
-import { RECEIVE_STEP, RECIEVE_STEPS, REMOVE_STEP } from "../actions/step_actions";
+import { RECEIVE_STEP, RECEIVE_STEPS, REMOVE_STEP } from "../actions/step_actions";
 
 const initialState = {};
 
 const stepReducer = (state = initialState, action) => {
   switch(action.type) {
-    case RECIEVE_STEPS:
+    case RECEIVE_STEPS:
       let newSteps = {};
       action.steps.map(step => newSteps[step.id] = step);
       return newSteps;
